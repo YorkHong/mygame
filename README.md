@@ -1,2 +1,2 @@
-# mygame
-study and save
+# slggame
+study use netty build a slg game project
