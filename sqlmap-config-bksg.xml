@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings
+		cacheModelsEnabled="true"
+		enhancementEnabled="true"
+		lazyLoadingEnabled="true"
+		errorTracingEnabled="true"
+		maxRequests="256"
+		maxSessions="64"
+		maxTransactions="24"
+		useStatementNamespaces="true"/>
+	<transactionManager type="JDBC" commitRequired="false">
+		<dataSource type="DBCP">
+			<property name="driverClassName" value="${driverClass}"/>
+			<property name="url" value="${url_bksg}"/>
+			<property name="username" value="${username_bksg}"/>
+			<property name="password" value="${password_bksg}"/>
+			<property name="maxActive" value="1000"/>
+			<property name="maxIdle" value="10"/>
+			<property name="maxWait" value="60000"/>
+			<property name="validationQuery" value="select 1"/>
+			<property name="logAbandoned" value="false"/>
+			<property name="removeAbandoned" value="false"/>
+			<property name="removeAbandonedTimeout" value="50000"/>
+		</dataSource>
+	</transactionManager>
+	<!--  游戏后台用表  -->
+	<!--  DDL  -->
+	<sqlMap resource="game/basic/ddl.xml"/>
+	<!--  系统流水  -->
+	<sqlMap resource="game/backstage/dao/M_FlowRecord.xml" />
+	<!--  全服广播  -->
+	<sqlMap resource="game/backstage/dao/M_statement.xml" />
+	<!--  玩家信息  -->
+	<sqlMap resource="game/backstage/dao/M_roleInfo.xml"/>
+	<!--  在线统计  -->
+	<sqlMap resource="game/backstage/dao/M_Online.xml"/>
+	<!--  登录和登出  -->
+	<sqlMap resource="game/backstage/dao/M_LogInAndLogOut.xml"/>
+	<!--  内部特权号和特殊身份  -->
+	<sqlMap resource="game/backstage/dao/SpecialRole.xml"/>
+	<!--  日志流水  -->
+	<sqlMap resource="game/backstage/dao/M_RoleLog.xml"/>
+</sqlMapConfig>
